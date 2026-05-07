@@ -1,0 +1,23 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Developer:
+    - Github:
+        - abbr: GH
+          href: https://github.com/
+
+- Homelab Docs:
+    - Authentik:
+        - abbr: AK
+          href: https://docs.goauthentik.io
+    - Homepage:
+        - abbr: HP
+          href: https://gethomepage.dev/configs
+    - Proxmox Community Scripts:
+        - abbr: PX
+          href: https://community-scripts.github.io/ProxmoxVE
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
