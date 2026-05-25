@@ -2,237 +2,130 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/services/
 
-- Hosts:
-    - UniFi Gateway:
-        icon: ubiquiti-unifi.png
-        href: https://router.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_ROUTER_HOST}}"
-        description: Router
-        widget:
-          type: unifi
-          url: "{{HOMEPAGE_VAR_ROUTER_HOST}}"
-          key: "{{HOMEPAGE_VAR_UNIFI_API_KEY}}"
+- Core Infrastructure:
     - Proxmox:
-        icon: proxmox.png
+        icon: si-proxmox
         href: https://proxmox.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_PROXMOX_HOST}}"
         description: Hypervisor
-        widget:
-          type: proxmox
-          url: "{{HOMEPAGE_VAR_PROXMOX_HOST}}"
-          username: "{{HOMEPAGE_VAR_PROXMOX_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_PROXMOX_PASSWORD}}"
+    - Proxmox Backup Server:
+        icon: si-proxmox
+        href: https://pbs.home.anolivebranch.dev
+        description: Backup Server
     - TrueNAS:
         icon: truenas.png
         href: https://truenas.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_TRUENAS_HOST}}"
         description: NAS
-        widget:
-          type: truenas
-          url: "{{HOMEPAGE_VAR_TRUENAS_HOST}}"
-          version: 2
-          key: "{{HOMEPAGE_VAR_TRUENAS_API_KEY}}"
-          enablePools: true
-          nasType: scale
-- Infrastructure:
+    - Komodo:
+        icon: mdi-docker
+        href: https://komodo.home.anolivebranch.dev
+        description: Container Orchestrator
     - Authentik:
-        icon: authentik.png
+        icon: si-authentik
         href: https://auth.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_AUTHENTIK_HOST}}"
         description: Authentication Provider
-        widget:
-          type: authentik
-          url: "{{HOMEPAGE_VAR_AUTHENTIK_HOST}}"
-          key: "{{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}"
-          version: 2
-    - Pihole (Primary):
-        icon: pi-hole.png
-        href: https://pihole.home.anolivebranch.dev/admin
-        siteMonitor: "{{HOMEPAGE_VAR_PIHOLE_PRIMARY_HOST}}"
-        description: Primary DNS Server
-        widget:
-          type: pihole
-          url: "{{HOMEPAGE_VAR_PIHOLE_PRIMARY_HOST}}"
-          version: 6
-          key: "{{HOMEPAGE_VAR_PIHOLE_PRIMARY_API_KEY}}"
-    - Pihole (Secondary):
-        icon: pi-hole.png
-        href: https://pihole-secondary.home.anolivebranch.dev/admin
-        siteMonitor: "{{HOMEPAGE_VAR_PIHOLE_SECONDARY_HOST}}"
-        description: Backup DNS Server
-        widget:
-          type: pihole
-          url: "{{HOMEPAGE_VAR_PIHOLE_SECONDARY_HOST}}"
-          version: 6
-          key: "{{HOMEPAGE_VAR_PIHOLE_SECONDARY_API_KEY}}"
     - PeaNUT:
-        icon: peanut.png
+        icon: mdi-power-plug
         href: https://peanut.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_PEANUT_HOST}}"
         description: UPS Status
-        widget:
-          type: peanut
-          url: "{{HOMEPAGE_VAR_PEANUT_HOST}}"
-          key: "{{HOMEPAGE_VAR_PEANUT_UPS_NAME}}"
-          username: "{{HOMEPAGE_VAR_PEANUT_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_PEANUT_PASSWORD}}"
+
+- Networking:
+    - Technitium:
+        icon: mdi-dns
+        href: https://technitium.home.anolivebranch.dev
+        description: DNS Server
+    - Technitium (secondary):
+        icon: mdi-dns
+        href: https://technitium-boethiah.home.anolivebranch.dev
+        description: Backup DNS Server
     - Nginx (internal):
-        icon: nginx-proxy-manager.png
+        icon: si-nginx
         href: https://nginx.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_NGINX_HOST}}"
         description: Reverse Proxy Manager
-        widget:
-          type: npm
-          url: "{{HOMEPAGE_VAR_NGINX_HOST}}"
-          username: "{{HOMEPAGE_VAR_NGINX_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_NGINX_PASSWORD}}"
-- Media:
+    - Nginx (external):
+        icon: si-nginx
+        href: https://nginx-ext.home.anolivebranch.dev
+        description: Reverse Proxy Manager
+    - UniFi Gateway:
+        icon: si-ubiquiti
+        href: https://router.home.anolivebranch.dev
+        description: Router
+    - Xfinity Modem:
+        icon: mdi-router-wireless
+        href: https://modem.home.anolivebranch.dev
+        description: Modem
+
+- Monitoring:
+    - Grafana:
+        icon: si-grafana
+        href: https://grafana.home.anolivebranch.dev
+        description: Metrics Dashboard
+    - Prometheus:
+        icon: si-prometheus
+        href: https://prometheus.home.anolivebranch.dev
+        description: Metrics Collector
+    - Beszel:
+        icon: mdi-chart-box-outline
+        href: https://beszel.home.anolivebranch.dev
+        description: Log Aggregator
+    - Pulse:
+        icon: mdi-heart-pulse
+        href: https://pulse.home.anolivebranch.dev
+        description: Uptime Monitor
+    - Uptime Kuma:
+        icon: uptime-kuma.png
+        href: https://uptime.home.anolivebranch.dev
+        description: Uptime Monitor
+
+- Media & Household:
     - Jellyfin:
-        icon: jellyfin.png
+        icon: si-jellyfin
         href: https://jellyfin.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_JELLYFIN_HOST}}"
         description: Media Server
-        proxmoxNode: proxmox
-        proxmoxVMID: 115
-        proxmoxType: lxc
-        widget:
-          type: jellyfin
-          url: "{{HOMEPAGE_VAR_JELLYFIN_HOST}}"
-          key: "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}"
-          enableBlocks: true
-          enableNowPlaying: true
-          enableUser: true
-          enableMediaControl: false
-          showEpisodeNumber: true
-          expandOneStreamToTwoRows: false
     - Jellyseerr:
         icon: jellyseerr.png
         href: https://jellyseer.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_JELLYSEER_HOST}}"
         description: Media Requests
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: jellyseerr
-          url: "{{HOMEPAGE_VAR_JELLYSEER_HOST}}"
-          key: "{{HOMEPAGE_VAR_JELLYSEER_API_KEY}}"
     - StreamyStats:
-        icon: sh-streamystats
+        icon: mdi-chart-line
         href: https://streamystats.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_STREAMYSTATS_HOST}}"
         description: Jellyfin Statistics
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-    - Immich:
-        icon: immich.png
-        href: https://immich.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_IMMICH_HOST}}"
-        description: Photo Library
-        proxmoxNode: proxmox
-        proxmoxVMID: 103
-        proxmoxType: lxc
-        widget:
-          type: immich
-          url: "{{HOMEPAGE_VAR_IMMICH_HOST}}"
-          key: "{{HOMEPAGE_VAR_IMMICH_API_KEY}}"
-          version: 2
-- Household:
     - Mealie:
         icon: mealie.png
         href: https://mealie.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_MEALIE_HOST}}"
         description: Recipe Manager
-        widget:
-          type: mealie
-          url: "{{HOMEPAGE_VAR_MEALIE_HOST}}"
-          key: "{{HOMEPAGE_VAR_MEALIE_API_KEY}}"
-          version: 2
+    - Immich:
+        icon: immich.png
+        href: https://immich.anolivebranch.dev
+        description: Photo Library
+
 - Media Management:
     - Radarr:
         icon: radarr.png
         href: https://radarr.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_RADARR_HOST}}"
         description: Media Manager (Movies)
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: radarr
-          url: "{{HOMEPAGE_VAR_RADARR_HOST}}"
-          key: "{{HOMEPAGE_VAR_RADARR_API_KEY}}"
-          enableQueue: false
     - Sonarr:
         icon: sonarr.png
         href: https://sonarr.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_SONARR_HOST}}"
         description: Media Manager (Shows)
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: sonarr
-          url: "{{HOMEPAGE_VAR_SONARR_HOST}}"
-          key: "{{HOMEPAGE_VAR_SONARR_API_KEY}}"
-          enableQueue: false
     - Lidarr:
         icon: lidarr.png
         href: https://lidarr.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_LIDARR_HOST}}"
         description: Media Manager (Music)
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: lidarr
-          url: "{{HOMEPAGE_VAR_LIDARR_HOST}}"
-          key: "{{HOMEPAGE_VAR_LIDARR_API_KEY}}"
     - Bazarr:
         icon: bazarr.png
         href: https://bazarr.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_BAZARR_HOST}}"
         description: Subtitle Manager
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: bazarr
-          url: "{{HOMEPAGE_VAR_BAZARR_HOST}}"
-          key: "{{HOMEPAGE_VAR_BAZARR_API_KEY}}"
     - Prowlarr:
         icon: prowlarr.png
         href: https://prowlarr.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_PROWLARR_HOST}}"
         description: Indexer Manager
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: prowlarr
-          url: "{{HOMEPAGE_VAR_PROWLARR_HOST}}"
-          key: "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}"
+
 - Download Clients:
     - qBittorrent:
         icon: qbittorrent.png
         href: https://qbittorrent.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_QBITTORRENT_HOST}}"
         description: Download client (torrents)
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu
-        widget:
-          type: qbittorrent
-          url: "{{HOMEPAGE_VAR_QBITTORRENT_HOST}}"
-          username: "{{HOMEPAGE_VAR_QBITTORRENT_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_QBITTORRENT_PASSWORD}}"
-          enableLeechProgress: false
-          enableLeechSize: false
-    - NZBget:
+    - NZBGet:
         icon: nzbget.png
         href: https://nzbget.home.anolivebranch.dev
-        siteMonitor: "{{HOMEPAGE_VAR_NZBGET_HOST}}"
         description: Download client (usenet)
-        proxmoxNode: proxmox
-        proxmoxVMID: 116
-        proxmoxType: qemu

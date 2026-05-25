@@ -2,22 +2,122 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/bookmarks
 
-- Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
-
-- Homelab Docs:
-    - Authentik:
-        - abbr: AK
-          href: https://docs.goauthentik.io
+- Docs - Dashboard & Identity:
     - Homepage:
         - abbr: HP
           href: https://gethomepage.dev/configs
+    - Authentik:
+        - abbr: AK
+          href: https://docs.goauthentik.io
+    - PeaNUT:
+        - abbr: PN
+          href: https://github.com/Brandawg93/PeaNUT
+
+- Docs - Orchestration & Storage:
+    - Proxmox VE:
+        - abbr: PV
+          href: https://pve.proxmox.com/pve-docs/
+    - Proxmox Backup Server:
+        - abbr: PB
+          href: https://pbs.proxmox.com/docs/
+    - Komodo:
+        - abbr: KO
+          href: https://komo.do/docs/intro
+    - TrueNAS:
+        - abbr: TN
+          href: https://www.truenas.com/docs/
+
+- Docs - Networking:
+    - Technitium DNS:
+        - abbr: TD
+          href: https://technitium.com/dns/help.html
+    - Nginx Proxy Manager:
+        - abbr: NP
+          href: https://nginxproxymanager.com/guide/
+    - UniFi Gateways:
+        - abbr: UG
+          href: https://help.ui.com/hc/en-us/categories/6583254840215-UniFi-Gateway
+    - Xfinity Support:
+        - abbr: XF
+          href: https://www.xfinity.com/support/
+
+- Docs - Monitoring:
+    - Grafana:
+        - abbr: GR
+          href: https://grafana.com/docs/
+    - Prometheus:
+        - abbr: PR
+          href: https://prometheus.io/docs/introduction/overview/
+    - Beszel:
+        - abbr: BZ
+          href: https://beszel.dev/
+    - Pulse:
+        - abbr: PL
+          href: https://github.com/rcourtman/Pulse
+    - Uptime Kuma:
+        - abbr: UK
+          href: https://github.com/louislam/uptime-kuma/wiki
+
+- Docs - Media & Household:
+    - Jellyfin:
+        - abbr: JF
+          href: https://jellyfin.org/docs/
+    - Jellyseerr:
+        - abbr: JS
+          href: https://docs.jellyseerr.dev/
+    - StreamyStats:
+        - abbr: SS
+          href: https://github.com/streamyfin/streamystats
+    - Mealie:
+        - abbr: ME
+          href: https://docs.mealie.io/
+    - Immich:
+        - abbr: IM
+          href: https://immich.app/docs/
+
+- Docs - Media Management & Downloads:
+    - Servarr Wiki:
+        - abbr: SV
+          href: https://wiki.servarr.com/
+    - Bazarr:
+        - abbr: BA
+          href: https://wiki.bazarr.media/
+    - qBittorrent:
+        - abbr: QB
+          href: https://github.com/qbittorrent/qBittorrent/wiki
+    - NZBGet:
+        - abbr: NZ
+          href: https://nzbget.net/documentation
+
+- Useful - Proxmox Ecosystem:
     - Proxmox Community Scripts:
-        - abbr: PX
+        - abbr: PC
           href: https://community-scripts.github.io/ProxmoxVE
-- Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+    - TTECK GitHub Repo:
+        - abbr: TK
+          href: https://github.com/community-scripts/ProxmoxVE
+
+- Useful - Networking & IP Planning:
+    - IPv6 ULA Generator:
+        - abbr: UL
+          href: https://www.unique-local-ipv6.com/
+    - CIDR Calculator:
+        - abbr: CI
+          href: https://www.ipaddressguide.com/cidr
+    - DNS Checker:
+        - abbr: DN
+          href: https://dnschecker.org/
+
+- Useful - Security & Automation:
+    - TRaSH Guides:
+        - abbr: TG
+          href: https://trash-guides.info/
+    - Notifiarr:
+        - abbr: NT
+          href: https://notifiarr.com/
+    - Mozilla SSL Config:
+        - abbr: MS
+          href: https://ssl-config.mozilla.org/
+    - SSL Labs Test:
+        - abbr: SL
+          href: https://www.ssllabs.com/ssltest/
