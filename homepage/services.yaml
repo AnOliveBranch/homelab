@@ -4,11 +4,11 @@
 
 - Core Infrastructure:
     - Proxmox:
-        icon: si-proxmox
+        icon: proxmox.png
         href: https://proxmox.home.anolivebranch.dev
         description: Hypervisor
     - Proxmox Backup Server:
-        icon: si-proxmox
+        icon: proxmox-backup-server.png
         href: https://pbs.home.anolivebranch.dev
         description: Backup Server
     - TrueNAS:
@@ -16,59 +16,59 @@
         href: https://truenas.home.anolivebranch.dev
         description: NAS
     - Komodo:
-        icon: mdi-docker
+        icon: komodo.png
         href: https://komodo.home.anolivebranch.dev
         description: Container Orchestrator
     - Authentik:
-        icon: si-authentik
+        icon: authentik.png
         href: https://auth.anolivebranch.dev
         description: Authentication Provider
     - PeaNUT:
-        icon: mdi-power-plug
+        icon: peanut.png
         href: https://peanut.home.anolivebranch.dev
         description: UPS Status
 
 - Networking:
     - Technitium:
-        icon: mdi-dns
+        icon: technitium.png
         href: https://technitium.home.anolivebranch.dev
         description: DNS Server
     - Technitium (secondary):
-        icon: mdi-dns
+        icon: technitium.png
         href: https://technitium-boethiah.home.anolivebranch.dev
         description: Backup DNS Server
     - Nginx (internal):
-        icon: si-nginx
+        icon: nginx-proxy-manager.png
         href: https://nginx.home.anolivebranch.dev
         description: Reverse Proxy Manager
     - Nginx (external):
-        icon: si-nginx
+        icon: nginx-proxy-manager.png
         href: https://nginx-ext.home.anolivebranch.dev
         description: Reverse Proxy Manager
     - UniFi Gateway:
-        icon: si-ubiquiti
+        icon: unifi.png
         href: https://router.home.anolivebranch.dev
         description: Router
     - Xfinity Modem:
-        icon: mdi-router-wireless
+        icon: sh-xfinity.png
         href: https://modem.home.anolivebranch.dev
         description: Modem
 
 - Monitoring:
     - Grafana:
-        icon: si-grafana
+        icon: grafana.png
         href: https://grafana.home.anolivebranch.dev
         description: Metrics Dashboard
     - Prometheus:
-        icon: si-prometheus
+        icon: prometheus.png
         href: https://prometheus.home.anolivebranch.dev
         description: Metrics Collector
     - Beszel:
-        icon: mdi-chart-box-outline
+        icon: beszel.png
         href: https://beszel.home.anolivebranch.dev
         description: Log Aggregator
     - Pulse:
-        icon: mdi-heart-pulse
+        icon: pulse.png
         href: https://pulse.home.anolivebranch.dev
         description: Uptime Monitor
     - Uptime Kuma:
@@ -78,7 +78,7 @@
 
 - Media & Household:
     - Jellyfin:
-        icon: si-jellyfin
+        icon: jellyfin.png
         href: https://jellyfin.anolivebranch.dev
         description: Media Server
     - Jellyseerr:
@@ -86,7 +86,7 @@
         href: https://jellyseer.anolivebranch.dev
         description: Media Requests
     - StreamyStats:
-        icon: mdi-chart-line
+        icon: streamystats.png
         href: https://streamystats.home.anolivebranch.dev
         description: Jellyfin Statistics
     - Mealie:
