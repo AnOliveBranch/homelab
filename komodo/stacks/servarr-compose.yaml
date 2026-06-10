@@ -16,6 +16,8 @@ services:
       - 8080:8080
       - 6881:6881
       - 6881:6881/udp
+    networks:
+      - servarr-net
     restart: unless-stopped
   nzbget:
     image: lscr.io/linuxserver/nzbget:latest
@@ -29,6 +31,8 @@ services:
       - /mnt/servarr/usenet:/data/usenet
     ports:
       - 6789:6789
+    networks:
+      - servarr-net
     restart: unless-stopped
   # Index Manager
   prowlarr:
@@ -42,6 +46,8 @@ services:
       - prowlarr-config:/config
     ports:
       - 9696:9696
+    networks:
+      - servarr-net
     restart: unless-stopped 
   # Get around CloudFlare protection
   flaresolverr:
@@ -53,6 +59,8 @@ services:
       - 8191:8191
     volumes:
       - flaresolverr-config:/config
+    networks:
+      - servarr-net
     restart: unless-stopped 
   # Media Management
   # Movies
@@ -68,6 +76,8 @@ services:
       - /mnt/servarr:/data
     ports:
       - 7878:7878
+    networks:
+      - servarr-net
     restart: unless-stopped
   # TV Shows
   sonarr:
@@ -82,6 +92,8 @@ services:
       - /mnt/servarr:/data
     ports:
       - 8989:8989
+    networks:
+      - servarr-net
     restart: unless-stopped
   # Music
   lidarr:
@@ -96,6 +108,8 @@ services:
       - /mnt/servarr:/data
     ports:
       - 8686:8686
+    networks:
+      - servarr-net
     restart: unless-stopped
   # Subtitles
   bazarr:
@@ -110,8 +124,17 @@ services:
       - /mnt/servarr:/data
     ports:
       - 6767:6767
+    networks:
+      - servarr-net
     restart: unless-stopped
 
+networks:
+  servarr-net:
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: "fd67:84d2:d793:9dfa::/64"
+          gateway: "fd67:84d2:d793:9dfa::1"
 volumes:
   qbittorrent-config:
   nzbget-config:
