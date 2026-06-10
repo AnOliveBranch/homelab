@@ -51,6 +51,8 @@ services:
       TZ: America/Chicago
     ports:
       - 8191:8191
+    volumes:
+      - flaresolverr-config:/config
     restart: unless-stopped 
   # Media Management
   # Movies
@@ -114,6 +116,7 @@ volumes:
   qbittorrent-config:
   nzbget-config:
   prowlarr-config:
+  flaresolverr-config:
   sonarr-config:
   radarr-config:
   lidarr-config:
