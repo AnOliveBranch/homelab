@@ -1,9 +1,3 @@
-[[stack]]
-name = "servarr"
-[stack.config]
-server = "ct-media-servarr-01"
-poll_for_updates = true
-file_contents = """
 services:
   #  Download clients
   qbittorrent:
@@ -12,7 +6,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
       WEBUI_PORT: 8080
       TORRENTING_PORT: 6881
     volumes:
@@ -29,7 +23,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - nzbget-config:/config
       - /mnt/servarr/usenet:/data/usenet
@@ -43,7 +37,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - prowlarr-config:/config
     ports:
@@ -54,11 +48,9 @@ services:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
     environment:
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     ports:
       - 8191:8191
-    volumes:
-      - flaresolverr-config:/config
     restart: unless-stopped 
   # Media Management
   # Movies
@@ -68,7 +60,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - radarr-config:/config
       - /mnt/servarr:/data
@@ -82,7 +74,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - sonarr-config:/config
       - /mnt/servarr:/data
@@ -96,7 +88,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - lidarr-config:/config
       - /mnt/servarr:/data
@@ -110,7 +102,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      TZ: [[GLOBAL_TIMEZONE]]
+      TZ: America/Chicago
     volumes:
       - bazarr-config:/config
       - /mnt/servarr:/data
@@ -122,9 +114,7 @@ volumes:
   qbittorrent-config:
   nzbget-config:
   prowlarr-config:
-  flaresolverr-config:
   sonarr-config:
   radarr-config:
   lidarr-config:
   bazarr-config:
-"""
