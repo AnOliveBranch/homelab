@@ -19,8 +19,8 @@ poll_for_updates = true
 restart = "unless-stopped"
 # set the volumes / bind mounts
 volumes = """
-config:/etc/dns
-logs:/var/log/technitium/dns
+technitium-config:/etc/dns
+technitium-logs:/var/log/technitium/dns
 """
 # Port mapping
 ports = """
