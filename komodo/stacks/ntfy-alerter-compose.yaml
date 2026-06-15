@@ -7,8 +7,6 @@ services:
       NTFY_URL: https://ntfy.anolivebranch.dev
       ## Topic to be used for for Komodo
       NTFY_TOPIC: komodo-alerts
-      ## Auth
-      NTFY_TOKEN: [[NTFY_TOKEN]]
       # Below need to add to `compose.yaml` as well
       ## Set the ntfy Priority level based on Komodo alert severity
       NTFY_OK_PRIORITY: 3
