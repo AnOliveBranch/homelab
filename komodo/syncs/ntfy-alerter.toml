@@ -23,4 +23,4 @@ name = "ntfy"
 [alerter.config]
 enabled = true
 endpoint.type = "Custom"
-endpoint.params.url = "http://ntfy-aleter-komodo-ntfy-1:7000"
+endpoint.params.url = "http://ntfy-alerter-komodo-ntfy-1:7000"
