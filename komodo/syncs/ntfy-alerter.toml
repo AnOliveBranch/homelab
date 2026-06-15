@@ -6,6 +6,10 @@ tags = ["infra"]
 [stack.config]
 auto_update = true
 server = "Local"
+links = ["https://github.com/FoxxMD/deploy-ntfy-alerter/tree/main"]
+environment = """
+  NTFY_TOKEN=[[NTFY_TOKEN]]
+"""
 
 # Git configuration
 git_provider = "github.com"

@@ -8,6 +8,7 @@ tags = ["media"]
 [stack.config]
 auto_update = true
 server = "ct-media-servarr-02"
+links = ["https://wiki.servarr.com/"]
 
 # Git configuration
 git_provider = "github.com"

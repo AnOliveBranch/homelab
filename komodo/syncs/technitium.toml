@@ -11,6 +11,7 @@ tags = ["networking"]
 deploy = true
 [deployment.config]
 server = "boethiah"
+links = ["https://technitium.com/dns/"]
 # Docker image
 image.type = "Image"
 image.params.image = "docker.io/technitium/dns-server:latest"
