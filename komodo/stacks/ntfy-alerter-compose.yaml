@@ -1,0 +1,30 @@
+services:
+  komodo-ntfy:
+    image: foxxmd/komodo-ntfy-alerter:latest
+    restart: unless-stopped
+    environment:
+      ## Your ntfy instance URL
+      NTFY_URL: https://ntfy.anolivebranch.dev
+      ## Topic to be used for for Komodo
+      NTFY_TOPIC: komodo-alerts
+      ## Auth
+      NTFY_TOKEN: [[NTFY_TOKEN]]
+      # Below need to add to `compose.yaml` as well
+      ## Set the ntfy Priority level based on Komodo alert severity
+      NTFY_OK_PRIORITY: 3
+      NTFY_WARNING_PRIORITY: 5
+      NTFY_CRITICAL_PRIORITY: 8
+      # Set whether to include Komodo Severity Level in notification title
+      LEVEL_IN_TITLE: true
+      # Prefixes messages with a checkmark when the Alert is in the 'Resolved' state
+      INDICATE_RESOLVED: true
+      # Filter if an alert is pushed based on its Resolved status
+      # * leave unset to push all alerts
+      # * otherwise, alerts will only be pushed if Alert is one of the comma-separated states set here
+      ALLOW_RESOLVED_TYPE: ["resolved", "unresolved"]
+      ## Delay alerts with below types for X milliseconds 
+      ## and cancel pushing alert if it is resolved within that time
+      UNRESOLVED_TIMEOUT_TYPES: ["ServerCpu", "ServerMem"]
+      UNRESOLVED_TIMEOUT: 2000
+    ports:
+      - 7000:7000

@@ -1,0 +1,22 @@
+[[stack]]
+name = "ntfy-alerter"
+description = "Custom alerter to integrate with ntfy"
+deploy = true
+tags = ["infra"]
+[stack.config]
+auto_update = true
+server = "Local"
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["ntfy-alerter-compose.yaml"]
+
+[[alerter]]
+name = "ntfy"
+[alerter.config]
+enabled = true
+endpoint.type = "Custom"
+endpoint.params.url = "http://komodo-ntfy:7000"
