@@ -24,6 +24,7 @@ services:
       ## and cancel pushing alert if it is resolved within that time
       UNRESOLVED_TIMEOUT_TYPES: ServerCpu,ServerMem
       UNRESOLVED_TIMEOUT: 2000
+    env_file: .env
     ports:
       - 7000:7000
     networks:
