@@ -1,0 +1,82 @@
+##
+
+[[stack]]
+name = "authentication"
+description = "Authentik stack"
+deploy = true
+tags = ["infra"]
+[stack.config]
+auto_update = true
+server = "vm-docker-01"
+links = ["https://docs.goauthentik.io/"]
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["authentik-compose.yaml"]
+
+##
+
+[[stack]]
+name = "dns"
+description = "Technitium DNS Server"
+deploy = true
+tags = ["infra", "networking"]
+[stack.config]
+auto_update = true
+server = "vm-docker-01"
+links = ["https://technitium.com/dns/"]
+environment = """
+  DNS_SERVER_DOMAIN=ns0.dns.home.anolivebranch.dev
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["technitium-compose.yaml"]
+
+##
+
+[[stack]]
+name = "servarr"
+description = "Servarr stack for media"
+deploy = true
+tags = ["media"]
+[stack.config]
+auto_update = true
+server = "ct-media-servarr-02"
+links = ["https://wiki.servarr.com/"]
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["servarr-compose.yaml"]
+
+##
+
+[[stack]]
+name = "ntfy-alerter"
+description = "Custom alerter to integrate with ntfy"
+deploy = true
+tags = ["infra"]
+[stack.config]
+auto_update = true
+server = "Local"
+links = ["https://github.com/FoxxMD/deploy-ntfy-alerter/tree/main"]
+environment = """
+  NTFY_TOKEN=[[NTFY_TOKEN]]
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["ntfy-alerter-compose.yaml"]
+

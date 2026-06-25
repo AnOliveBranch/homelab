@@ -3,7 +3,7 @@
 [[deployment]]
 name = "technitium"
 description = "Technitium DNS Server"
-tags = ["networking"]
+tags = ["infra", "networking"]
 # sync will deploy the container:
 #  - if it is not running.
 #  - has relevant config updates.

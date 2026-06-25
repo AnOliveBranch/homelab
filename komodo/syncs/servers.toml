@@ -1,0 +1,39 @@
+##
+
+[[server]]
+name = "Local"
+description = "LXC running komodo"
+tags = ["infra"]
+[server.config]
+region = "Arkay"
+enabled = true
+
+##
+
+[[server]]
+name = "vm-docker-01"
+description = "Primary docker VM for critical services"
+tags = ["infra"]
+[server.config]
+region = "Arkay"
+enabled = true
+
+##
+
+[[server]]
+name = "boethiah"
+description = "Raspberry Pi running Technitium DNS server"
+tags = ["infra"]
+[server.config]
+region = "Boethiah"
+enabled = true
+
+##
+
+[[server]]
+name = "ct-media-servarr-02"
+description = "LXC running servarr stack for media"
+tags = ["media"]
+[server.config]
+region = "Arkay"
+enabled = true
