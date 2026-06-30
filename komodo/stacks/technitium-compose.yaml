@@ -55,7 +55,7 @@ services:
       - technitium-net
 networks:
   technitium-net:
-    ipv6_enabled: true
+    enable_ipv6: true
 
 volumes:
     config:
