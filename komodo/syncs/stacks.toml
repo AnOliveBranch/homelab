@@ -20,7 +20,7 @@ file_paths = ["authentik-compose.yaml"]
 ##
 
 [[stack]]
-name = "dns"
+name = "dns-ns0"
 description = "Technitium DNS Server"
 deploy = true
 tags = ["infra", "networking"]
@@ -29,7 +29,29 @@ auto_update = true
 server = "vm-docker-01"
 links = ["https://technitium.com/dns/"]
 environment = """
-  DNS_SERVER_DOMAIN=ns0.dns.home.anolivebranch.dev
+  DNS_SERVER_DOMAIN=ns0.dns.local
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["technitium-compose.yaml"]
+
+##
+[[stack]]
+
+name = "dns-ns2"
+description = "Technitium DNS Server"
+deploy = true
+tags = ["infra", "networking"]
+[stack.config]
+auto_update = true
+server = "boethiah"
+links = ["https://technitium.com/dns/"]
+environment = """
+  DNS_SERVER_DOMAIN=ns2.dns.local
 """
 
 # Git configuration
