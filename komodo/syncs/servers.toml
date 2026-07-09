@@ -7,7 +7,7 @@ tags = ["infra"]
 [server.config]
 region = "Arkay"
 enabled = true
-external_address = "fd67:84d2:d793:0:be24:11ff:fe05:99a7"
+external_address = "[fd67:84d2:d793:0:be24:11ff:fe05:99a7]"
 
 ##
 
@@ -18,7 +18,7 @@ tags = ["infra"]
 [server.config]
 region = "Arkay"
 enabled = true
-external_address = "fd67:84d2:d793:0:68:49ff:fe55:c283"
+external_address = "[fd67:84d2:d793:0:68:49ff:fe55:c283]"
 
 ##
 
@@ -29,7 +29,7 @@ tags = ["infra"]
 [server.config]
 region = "Boethiah"
 enabled = true
-external_address = "fd67:84d2:d793:0:4a03:c729:7976:2e1"
+external_address = "[fd67:84d2:d793:0:4a03:c729:7976:2e1]"
 
 ##
 
@@ -40,4 +40,4 @@ tags = ["media"]
 [server.config]
 region = "Arkay"
 enabled = true
-external_address = "fd67:84d2:d793:0:be24:11ff:feb0:62da"
+external_address = "[fd67:84d2:d793:0:be24:11ff:feb0:62da]"
