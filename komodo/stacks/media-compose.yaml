@@ -1,0 +1,81 @@
+## Add your compose file here
+services:
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    restart: unless-stopped
+    ports:
+      - 5055:5055
+    environment:
+      TZ: America/Chicago
+    volumes:
+      - seerr-data:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+  streamystats-web:
+    image: ghcr.io/fredrikburmester/streamystats-nextjs:latest
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://streamy:${POSTGRES_PASSWORD}@streamystats-db:5432/streamystats
+      JOB_SERVER_URL: http://streamystats-server:3005
+      HOSTNAME: 0.0.0.0
+    depends_on:
+      streamystats-db:
+        condition: service_healthy
+      streamystats-server:
+        condition: service_healthy
+  streamystats-server:
+    image: ghcr.io/fredrikburmester/streamystats-job-server:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://streamy:${POSTGRES_PASSWORD}@streamystats-db:5432/streamystats
+      PORT: 3005
+      HOST: 0.0.0.0
+      # Session polling interval in milliseconds (default: 5000)
+      SESSION_POLL_INTERVAL_MS: 5000
+      # Cron schedules (standard cron syntax)
+      CRON_ACTIVITY_SYNC: "*/1 * * * *"
+      CRON_RECENT_ITEMS_SYNC: "*/1 * * * *"
+      CRON_USER_SYNC: "*/1 * * * *"
+      CRON_PEOPLE_SYNC: "*/15 * * * *"
+      CRON_EMBEDDINGS_SYNC=: "*/15 * * * *"
+      CRON_GEOLOCATION_SYNC: "*/5 * * * *"
+      CRON_FINGERPRINT_SYNC: "0 4 * * *"
+      CRON_JOB_CLEANUP: "*/1 * * * *"
+      CRON_OLD_JOB_CLEANUP: "0 3 * * *"
+      CRON_FULL_SYNC: "0 2 * * *"
+      CRON_DELETED_ITEMS_CLEANUP: "0 * * * *"
+      # Skip full sync on server startup (set to "true" or "1" to skip)
+      SKIP_STARTUP_FULL_SYNC: false
+    depends_on:
+      streamystats-db:
+        condition: service_healthy
+  streamystats-db:
+    image: tensorchord/vchord-postgres:pg17-v0.4.1
+    restart: unless-stopped
+    command: ["postgres", "-c", "log_checkpoints=off"]
+    env_file: .env
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    volumes:
+      - streamystats-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  seerr-data:
+  streamystats-data:

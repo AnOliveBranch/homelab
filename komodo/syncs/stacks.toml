@@ -9,6 +9,12 @@ tags = ["infra"]
 auto_update = true
 server = "vm-docker-01"
 links = ["https://docs.goauthentik.io/"]
+environment = """
+  POSTGRES_PASSWORD=[[AUTHENTIK_POSTGRES_PASSWORD]]
+  AUTHENTIK_POSTGRESQL__PASSWORD=[[AUTHENTIK_POSTGRES_PASSWORD]]
+  AUTHENTIK_SECRET_KEY=[[AUTHENTIK_SERVER_SECRET_KEY]]
+  AUTHENTIK_EMAIL__PASSWORD=[[AUTHENTIK_SMTP_PASSWORD]]
+"""
 
 # Git configuration
 git_provider = "github.com"
@@ -79,6 +85,30 @@ repo = "AnOliveBranch/homelab"
 branch = "main"
 run_directory = "komodo/stacks"
 file_paths = ["servarr-compose.yaml"]
+
+##
+
+[[stack]]
+name = "media"
+description = "Media stack (streamystats & seerr)"
+deploy = true
+tags = ["media"]
+[stack.config]
+auto_update = true
+server = "vm-docker-01"
+links = ["https://github.com/fredrikburmester/streamystats","https://docs.seerr.dev/"]
+environment = """
+  POSTGRES_PASSWORD=[[STREAMYSTATS_POSTGRES_DB_PASSWORD]]
+  SESSION_SECRET=[[STREAMYSTATS_SESSION_SECRET]]
+  NEXT_SERVER_ACTIONS_ENCRYPTION_KEY=[[STREAMYSTATS_ENCRYPTION_KEY]]
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["media-compose.yaml"]
 
 ##
 
