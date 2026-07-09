@@ -2,6 +2,7 @@ services:
   authentik-postgres:
     image: docker.io/library/postgres:16-alpine
     restart: unless-stopped
+    env_file: .env
     environment:
       POSTGRES_DB: authentik
       POSTGRES_USER: authentik
@@ -19,6 +20,7 @@ services:
     image: ghcr.io/goauthentik/server:2026.5.4
     command: server
     restart: unless-stopped
+    env_file: .env
     environment:
       AUTHENTIK_POSTGRESQL__HOST: authentik-postgres
       AUTHENTIK_POSTGRESQL__NAME: authentik
@@ -43,6 +45,7 @@ services:
     image: ghcr.io/goauthentik/server:2026.5.4
     command: worker
     restart: unless-stopped
+    env_file: .env
     environment:
       AUTHENTIK_POSTGRESQL__HOST: authentik-postgres
       AUTHENTIK_POSTGRESQL__NAME: authentik
