@@ -26,7 +26,7 @@ services:
       NODE_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@streamystats-db:5432/streamystats
       JOB_SERVER_URL: http://streamystats-server:3005
-      HOSTNAME: ::/0
+      HOSTNAME: "::"
     depends_on:
       streamystats-db:
         condition: service_healthy
@@ -40,7 +40,7 @@ services:
       NODE_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@streamystats-db:5432/streamystats
       PORT: 3005
-      HOST: ::/0
+      HOST: "::"
       # Session polling interval in milliseconds (default: 5000)
       SESSION_POLL_INTERVAL_MS: 5000
       # Cron schedules (standard cron syntax)
