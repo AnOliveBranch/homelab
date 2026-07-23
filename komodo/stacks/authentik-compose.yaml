@@ -17,7 +17,7 @@ services:
     volumes:
       - authentik-db:/var/lib/postgresql/data
   authentik-server:
-    image: ghcr.io/goauthentik/server:2026.5.4
+    image: ghcr.io/goauthentik/server:2026.5
     command: server
     restart: unless-stopped
     env_file: .env
@@ -42,7 +42,7 @@ services:
       - authentik-templates:/templates
       - authentik-media:/media
   authentik-worker:
-    image: ghcr.io/goauthentik/server:2026.5.4
+    image: ghcr.io/goauthentik/server:2026.5
     command: worker
     restart: unless-stopped
     env_file: .env
