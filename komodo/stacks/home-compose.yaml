@@ -107,7 +107,8 @@ services:
       OIDC_ADMIN_GROUP: authentik-admins
       OIDC_AUTO_REDIRECT: true
       OIDC_REMEMBER_ME: true
-      # OIDC_SCOPES_OVERRIDE: "openid profile email groups offline_access"
+      OIDC_SCOPES_OVERRIDE: openid profile email groups offline_access
+      OIDC_REQUIRES_EMAIL_VERIFICATION: false
       TOKEN_TIME: 168 # 1 week
 volumes:
   mealie-data:
