@@ -89,20 +89,23 @@ file_paths = ["servarr-compose.yaml"]
 ##
 
 [[stack]]
-name = "media"
-description = "Media stack (streamystats & seerr)"
+name = "home"
+description = "Home Users Stack"
 deploy = true
-tags = ["media"]
+tags = ["media", "home"]
 [stack.config]
 auto_update = true
 server = "vm-docker-01"
-links = ["https://github.com/fredrikburmester/streamystats","https://docs.seerr.dev/"]
+links = ["https://github.com/fredrikburmester/streamystats","https://docs.seerr.dev/", "https://docs.mealie.io/"]
 environment = """
   POSTGRES_DB=streamystats
   POSTGRES_USER=streamy
   POSTGRES_PASSWORD=[[STREAMYSTATS_POSTGRES_DB_PASSWORD]]
   SESSION_SECRET=[[STREAMYSTATS_SESSION_SECRET]]
   NEXT_SERVER_ACTIONS_ENCRYPTION_KEY=[[STREAMYSTATS_ENCRYPTION_KEY]]
+  SMTP_PASSWORD=[[MEALIE_SMTP_PASSWORD]]
+  OIDC_CLIENT_ID=[[MEALIE_OIDC_CLIENT_ID]]
+  OIDC_CLIENT_SECRET=[[MEALIE_OIDC_CLIENT_SECRET]]
 """
 
 # Git configuration
@@ -110,7 +113,7 @@ git_provider = "github.com"
 repo = "AnOliveBranch/homelab"
 branch = "main"
 run_directory = "komodo/stacks"
-file_paths = ["media-compose.yaml"]
+file_paths = ["home-compose.yaml"]
 
 ##
 

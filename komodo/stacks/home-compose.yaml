@@ -76,7 +76,40 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
-
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    restart: unless-stopped
+    env_file: .env
+    ports:
+        - "9925:9000" # 
+    volumes:
+      - mealie-data:/app/data/
+    environment:
+      # Set Backend ENV Variables Here
+      ALLOW_SIGNUP: "false"
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Chicago
+      HOST: "::"
+      API_HOST: "::"
+      BASE_URL: https://mealie.anolivebranch.dev
+      SMTP_HOST: smtp.protonmail.ch
+      SMTP_PORT: 587
+      SMTP_FROM_NAME: contact@anolivebranch.dev
+      SMTP_FROM_EMAIL: contact@anolivebranch.dev
+      SMTP_USER: contact@anolivebranch.dev
+      SMTP_AUTH_STRATEGY: TLS
+      OIDC_AUTH_ENABLED: true
+      OIDC_PROVIDER_NAME: authentik
+      OIDC_CONFIGURATION_URL: https://auth.anolivebranch.dev/application/o/mealie/.well-known/openid-configuration
+      OIDC_SIGNUP_ENABLED: true
+      OIDC_USER_GROUP: home-users
+      OIDC_ADMIN_GROUP: authentik-admins
+      OIDC_AUTO_REDIRECT: true
+      OIDC_REMEMBER_ME: true
+      OIDC_SCOPES_OVERRIDE: openid profile email groups offline_access
+      TOKEN_TIME: 168 # 1 week
 volumes:
+  mealie-data:
   seerr-data:
   streamystats-data:
