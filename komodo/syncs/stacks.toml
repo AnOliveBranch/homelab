@@ -50,7 +50,7 @@ file_paths = ["authentik-compose.yaml"]
 
 [[stack]]
 name = "dns-ns0"
-description = "Technitium DNS Server"
+description = "Technitium DNS Server (Arkay)"
 deploy = true
 tags = ["infra", "networking"]
 [stack.config]
@@ -69,10 +69,32 @@ run_directory = "komodo/stacks"
 file_paths = ["technitium-compose.yaml"]
 
 ##
+
+[[stack]]
+name = "dns-ns1"
+description = "Technitium DNS Server (Hircine)"
+deploy = true
+tags = ["infra", "networking"]
+[stack.config]
+auto_update = true
+server = "hircine"
+links = ["https://technitium.com/dns/"]
+environment = """
+  DNS_SERVER_DOMAIN=ns1.dns.local
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["technitium-compose.yaml"]
+
+##
 [[stack]]
 
 name = "dns-ns2"
-description = "Technitium DNS Server"
+description = "Technitium DNS Server (Boethiah)"
 deploy = true
 tags = ["infra", "networking"]
 [stack.config]
@@ -137,3 +159,25 @@ repo = "AnOliveBranch/homelab"
 branch = "main"
 run_directory = "komodo/stacks"
 file_paths = ["home-compose.yaml"]
+
+##
+
+[[stack]]
+name = "monitor"
+description = "Monitoring & notification stack"
+deploy = true
+tags = ["infra", "monitor"]
+[stack.config]
+auto_update = true
+server = "hircine"
+links = ["https://github.com/louislam/uptime-kuma", "https://github.com/binwiederhier/ntfy", "https://github.com/Brandawg93/PeaNUT", "https://github.com/henrygd/beszel"]
+environment = """
+
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["monitor-compose.yaml"]

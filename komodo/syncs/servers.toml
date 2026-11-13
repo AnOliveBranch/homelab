@@ -1,16 +1,5 @@
 ##
 
-# [[server]]
-# name = "Local"
-# description = "LXC running komodo"
-# tags = ["infra"]
-# [server.config]
-# region = "Arkay"
-# enabled = true
-# external_address = "[fd67:84d2:d793:0:be24:11ff:fe05:99a7]"
-
-##
-
 [[server]]
 name = "vm-docker-01"
 description = "Primary docker VM for critical services"
@@ -24,12 +13,23 @@ external_address = "[fd67:84d2:d793:0:68:49ff:fe55:c283]"
 
 [[server]]
 name = "boethiah"
-description = "Raspberry Pi running Technitium DNS server"
+description = "Raspberry Pi 4"
 tags = ["infra"]
 [server.config]
 region = "Boethiah"
 enabled = true
 external_address = "[fd67:84d2:d793:0:4a03:c729:7976:2e1]"
+
+##
+
+[[server]]
+name = "hircine"
+description = "Raspberry Pi 3"
+tags = ["infra"]
+[server.config]
+region = "Hircine"
+enabled = true
+external_address = "[fd67:84d2:d793:0:7969:9ff6:156c:1f9b]"
 
 ##
 
