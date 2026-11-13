@@ -30,6 +30,7 @@ services:
     volumes:
       - ntfy-cache:/var/cache/ntfy
       - ntfy-config:/etc/ntfy
+      - ntfy-data:/var/lib/ntfy
     ports:
       - 8070:80
     restart: unless-stopped
@@ -46,4 +47,5 @@ volumes:
   beszel-data:
   ntfy-cache:
   ntfy-config:
+  ntfy-data:
   uptime-kuma-data:
