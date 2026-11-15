@@ -11,6 +11,6 @@ wget https://raw.githubusercontent.com/AnOliveBranch/homelab/refs/heads/main/dns
 wget https://raw.githubusercontent.com/AnOliveBranch/homelab/refs/heads/main/dns/check_dns.sh -O /etc/keepalived/check_dns.sh
 chmod +x /etc/keepalived/check_dns.sh
 
-# Ensure the keepalived service is restarted to apply the new configuration
-systemctl restart keepalived
-systemctl enable --now keepalived
+echo "Keepalived configuration downloaded."
+echo "Action required: Update [HOST IPv6 ADDRESS] in /etc/keepalived/keepalived.conf and configure password"
+echo "Then restart the keepalived service to apply the changes."
