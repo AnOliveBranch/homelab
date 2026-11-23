@@ -5,7 +5,7 @@ name = "Pelagius"
 [deployment.config]
 server = "vm-docker-01"
 image.type = "Build"
-image.params.build = "pelagius"
+image.params.build = "pelagius-build"
 redeploy_on_build = true
 network = "host"
 volumes = """
@@ -19,7 +19,7 @@ name = "HermaeusMora"
 [deployment.config]
 server = "vm-docker-01"
 image.type = "Build"
-image.params.build = "hermaeusmora"
+image.params.build = "hermaeusmora-build"
 redeploy_on_build = true
 network = "host"
 volumes = """
@@ -33,7 +33,7 @@ name = "SoupRoles"
 [deployment.config]
 server = "vm-docker-01"
 image.type = "Build"
-image.params.build = "souproles"
+image.params.build = "souproles-build"
 redeploy_on_build = true
 network = "host"
 volumes = """
