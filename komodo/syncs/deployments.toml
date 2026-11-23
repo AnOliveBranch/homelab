@@ -8,6 +8,15 @@ image.type = "Build"
 image.params.build = "pelagius-build"
 redeploy_on_build = true
 network = "host"
+environment = """
+DISCORD_TOKEN=[[PELAGIUS_DISCORD_TOKEN]]
+GUILD_ID=1115801545284526161
+CLIENT_ID=714232981774139442
+LOG_CHANNEL_ID=1211691746954584064
+APP_DATA_DIR=./data
+PUID=1000
+PGID=1000
+"""
 volumes = """
 pelagius-data:/app/data
 """
@@ -22,20 +31,46 @@ image.type = "Build"
 image.params.build = "hermaeusmora-build"
 redeploy_on_build = true
 network = "host"
+environment = """
+DISCORD_TOKEN=[[HERMAEUS_DISCORD_TOKEN]]
+GUILD_ID=705879097414254693
+CLIENT_ID=719313518842871838
+LOG_INFO=true
+LOG_VERBOSE=false
+LOG_ERRORS=true
+INFO_LOG_CHANNEL_ID=909650306520985640
+ERROR_LOG_CHANNEL_ID=1025939830712041482
+APP_DATA_DIR=./data
+PUID=1000
+PGID=1000
+"""
 volumes = """
 hermaeusmora-data:/app/data
 """
 
 ##
 
-[[deployment]]
-name = "SoupRoles"
-[deployment.config]
-server = "vm-docker-01"
-image.type = "Build"
-image.params.build = "souproles-build"
-redeploy_on_build = true
-network = "host"
-volumes = """
-souproles-data:/app/data
-"""
+# [[deployment]]
+# name = "SoupRoles"
+# [deployment.config]
+# server = "vm-docker-01"
+# image.type = "Build"
+# image.params.build = "souproles-build"
+# redeploy_on_build = true
+# network = "host"
+# environment = """
+# DISCORD_TOKEN=[[SOUPROLES_DISCORD_TOKEN]]
+# GUILD_ID=705879097414254693
+# CLIENT_ID=719313518842871838
+# LOG_INFO=false
+# LOG_VERBOSE=false
+# LOG_ERRORS=true
+# INFO_LOG_CHANNEL_ID=909650306520985640
+# ERROR_LOG_CHANNEL_ID=1025939830712041482
+# APP_DATA_DIR=./data
+# PUID=1000
+# PGID=1000
+# """
+# volumes = """
+# souproles-data:/app/data
+# """
