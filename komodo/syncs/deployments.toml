@@ -1,1 +1,41 @@
 ##
+
+[[deployment]]
+name = "Pelagius"
+[deployment.config]
+server = "vm-docker-01"
+image.type = "Build"
+image.params.build = "pelagius"
+redeploy_on_build = true
+network = "host"
+volumes = """
+pelagius-data:/app/data
+"""
+
+##
+
+[[deployment]]
+name = "HermaeusMora"
+[deployment.config]
+server = "vm-docker-01"
+image.type = "Build"
+image.params.build = "hermaeusmora"
+redeploy_on_build = true
+network = "host"
+volumes = """
+hermaeusmora-data:/app/data
+"""
+
+##
+
+[[deployment]]
+name = "SoupRoles"
+[deployment.config]
+server = "vm-docker-01"
+image.type = "Build"
+image.params.build = "souproles"
+redeploy_on_build = true
+network = "host"
+volumes = """
+souproles-data:/app/data
+"""
