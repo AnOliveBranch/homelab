@@ -1,0 +1,23 @@
+##
+
+[[build]]
+name = "Pelagius"
+[build.config]
+builder = "vm-docker-01"
+repo = "AnOliveBranch/Pelagius"
+
+##
+
+[[build]]
+name = "HermaeusMora"
+[build.config]
+builder = "vm-docker-01"
+repo = "AnOliveBranch/HermaeusMora"
+
+##
+
+[[build]]
+name = "SoupRoles"
+[build.config]
+builder = "vm-docker-01"
+repo = "AnOliveBranch/SoupRoles"
