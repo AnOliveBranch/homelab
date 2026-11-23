@@ -18,7 +18,7 @@ PUID=1000
 PGID=1000
 """
 volumes = """
-pelagius-data:/app/data
+pelagius-data:/home/node/app/data
 """
 
 ##
@@ -45,7 +45,7 @@ PUID=1000
 PGID=1000
 """
 volumes = """
-hermaeusmora-data:/app/data
+hermaeusmora-data:/home/node/app/data
 """
 
 ##
@@ -72,5 +72,5 @@ hermaeusmora-data:/app/data
 # PGID=1000
 # """
 # volumes = """
-# souproles-data:/app/data
+# souproles-data:/home/node/app/data
 # """
