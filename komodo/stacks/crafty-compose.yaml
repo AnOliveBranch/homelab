@@ -2,12 +2,9 @@ services:
   crafty:
     image: registry.gitlab.com/crafty-controller/crafty-4:latest
     restart: unless-stopped
-    command:
-      [
-        "sh",
-        "-c",
-        "/crafty/docker_launcher.sh && apt update && apt install -y curl wget",
-      ]
+    build:
+      context: .
+      dockerfile: crafty.Dockerfile
     environment:
       - TZ=America/Chicago
     ports:
