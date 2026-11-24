@@ -1,10 +1,9 @@
 services:
   crafty:
-    image: registry.gitlab.com/crafty-controller/crafty-4:latest
-    restart: unless-stopped
     build:
       context: .
       dockerfile: crafty.Dockerfile
+    restart: unless-stopped
     environment:
       - TZ=America/Chicago
     ports:
