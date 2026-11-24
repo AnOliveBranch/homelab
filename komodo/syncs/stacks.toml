@@ -181,3 +181,25 @@ repo = "AnOliveBranch/homelab"
 branch = "main"
 run_directory = "komodo/stacks"
 file_paths = ["monitor-compose.yaml"]
+
+##
+
+[[stack]]
+name = "minecraft"
+description = "Minecraft server stack"
+deploy = true
+tags = ["infra", "gaming"]
+[stack.config]
+auto_update = true
+server = "vm-docker-arm-01"
+links = ["https://craftycontrol.com/", "https://docs.craftycontrol.com/"]
+environment = """
+
+"""
+
+# Git configuration
+git_provider = "github.com"
+repo = "AnOliveBranch/homelab"
+branch = "main"
+run_directory = "komodo/stacks"
+file_paths = ["crafty-compose.yaml"]

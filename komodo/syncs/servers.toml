@@ -12,6 +12,17 @@ external_address = "[fd67:84d2:d793:0:68:49ff:fe55:c283]"
 ##
 
 [[server]]
+name = "vm-docker-arm-01"
+description = "ARM docker VM on Stendarr"
+tags = ["infra"]
+[server.config]
+region = "Stendarr"
+enabled = true
+external_address = "[fd67:84d2:d793:0:be24:11ff:fea9:80f5]"
+
+##
+
+[[server]]
 name = "boethiah"
 description = "Raspberry Pi 4"
 tags = ["infra"]
